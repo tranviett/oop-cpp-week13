@@ -22,6 +22,14 @@ public:
         name = n;
         address = a;
     }
+
+    // Hàm hiển thị thông tin
+    void displayInfo() const {
+        cout << "CCCD:" << cccd << endl;
+        cout << "Name: " << name << endl;
+        cout << "Address: " << address << endl;
+    }
+
     // getters, setters
     string getCccd() const { return cccd; }
     string getName() const { return name; }
@@ -48,6 +56,14 @@ public:
         mssv = m;
         yearEntrance = y;
     }
+
+    // Hàm hiển thị thông tin (ghi đè)
+    void displayInfo() const {
+        People :: displayInfo(); // gọi hàm của lớp cha
+        cout << "MSSV: " << mssv << endl;
+        cout << "Year Entrance: " << yearEntrance << endl;
+    }
+
     // getters, setters
     string getMssv() const { return mssv; }
     int getYearEntrance() const {return yearEntrance; }
@@ -70,6 +86,13 @@ public:
     : Student(c, n, a, m, y) {
         credits = cr;
     }
+
+    // Hàm hiển thị thông tin (ghi đè)
+    void displayInfo() const {
+        Student :: displayInfo(); // gọi hàm của lớp cha (và People)
+        cout << "Credits: " << credits << endl;
+    }
+
     // getters, setters
     int getCredits() const { return credits; }
     void setCredits(int cr) { credits = cr; }
@@ -87,21 +110,43 @@ public:
 };
 
 int main() {
-    // Tạo đối tượng bằng các constructor khác nhau
-    People p1; // dùng constructor không tham số
-    People p2("079123456789", "Nguyen Van A", "Ho Chi Minh");
+    // === 1. Tạo các đối tượng People bằng các constructor khác nhau ===
+    People p1; // mặc định
+    People p2("079123456789", "Nguyen Van A", "Ho Chi Minh"); // có tham số
 
-    Student s1; // dùng constructor không tham số
-    Student s2("079123456789", "Tran Thi B", "Ha Noi", "SV001", 2023);
+    // === 2. Tạo các đối tượng Student ===
+    Student s1; // mặc định (goi People())
+    Student s2("079123456789", "Tran Thi B", "Ha Noi", "SV001", 2023); // có tham số
 
-    FIEStudent f1; // dùng constructor không tham số
-    FIEStudent f2("079987654321", "Le Minh C", "Da Nang", "FIE2023001", 2023, 120);
+    // === 3. Tạo các đối tượng FIEStudent ===
+    FIEStudent f1; // mặc định (goi Student() -> People())
+    FIEStudent f2("079987654321", "Le Minh C", "Da Nang",
+    "FIE2023001", 2023, 120); // có tham số
 
-    cout << " == Thong tin doi tuong f1 (khoi tao mac dinh) == " << endl;
+    // === 4. Hiển thị thông tin các đối tượng ===
+    cout << " ---- Thong tin doi tuong p1 (People - mac dinh) ---- " << endl;
+    p1.displayInfo();
+    cout << endl;
+
+    cout << " ---- Thong tin doi tuong p2 (People - co tham so) ---- " << endl;
+    p2.displayInfo();
+    cout << endl;
+
+    cout << " ---- Thong tin doi tuong s1 (Student - mac dinh) ---- " << endl;
+    s1.displayInfo();
+    cout << endl;
+
+    cout << " ---- Thong tin doi tuơng s2 (Student - co tham so) ---- " << endl;
+    s2.displayInfo();
+    cout << endl;
+
+    cout << " ---- Thong tin doi tuong f1 (FIEStudent - mac dinh) ---- " << endl;
     f1.displayInfo();
+    cout << endl;
 
-    cout << " == Thong tin doi tuong f2 (khoi tao co tham so) == " << endl;
+    cout << " ---- Thong tin doi tuong f2 (FIEStudent - co tham so) ---- " << endl;
     f2.displayInfo();
+    cout << endl;
 
     return 0;
 }
