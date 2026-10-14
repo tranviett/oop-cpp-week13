@@ -174,9 +174,9 @@ void sapXepGiamDan(Employee* ds[], int loai[], int n) {
 
 int main() {
 
-    Employee e1("079123456789", "Nguyen Van A", "Ho Chi Minh");
-    HourlyEmployee h1("079876543210", "Tran Thi B", "Ha Noi", 160, 50000);
-    MonthlyEmployee m1("079987654321", "Le Minh C", "Da Nang", 15000000, 2000000, 1.2);
+    Employee e1("079123456789", "Nguyen Van A", "Da Nang");
+    HourlyEmployee h1("079876543210", "Tran Thi B", "Hai Phong", 160, 50000);
+    MonthlyEmployee m1("079987654321", "Le Minh C", "Vung Tau", 15000000, 2000000, 1.2);
 
     cout << "--- Thong tin Employee ---" << endl;
     e1.displayInfo();
@@ -185,8 +185,8 @@ int main() {
     cout << "\n--- Thong tin MonthlyEmployee ---" << endl;
     m1.displayInfo();
 
-    HourlyEmployee h2("079111111111", "Pham Van D", "Hue", 100, 60000);
-    MonthlyEmployee m2("079222222222", "Do Thi E", "Can Tho", 8000000, 1000000, 0.5);
+    HourlyEmployee h2("079111111111", "Pham Van D", "Hoa", 100, 60000);
+    MonthlyEmployee m2("079222222222", "Do Thi E", "Vinh Long", 8000000, 1000000, 0.5);
 
     Employee* ds[MAX];
     int loai[MAX];   // 1: Hourly, 2: Monthly
